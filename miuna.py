@@ -24,54 +24,7 @@ async def on_ready():
 	print('Use this link to invite {}:'.format(client.user.name))
 	print('https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
 	print('--------')
-	return await client.change_presence(game=discord.Game(name='Node.JS'))
-
-@client.command()
-async def aise(x, *z):
-        if x=='baru':
-                nama=re.compile(r"<h2 class=\"episodeye\">.*title=\"(.+)\">")
-                tautan = 'https://aise.fansub.web.id'
-                halaman = urlopen(tautan)
-                ah=BeautifulSoup(halaman, 'html.parser')
-                nama_01=nama.findall(str(ah))
-                await client.say('```Rilisan terbaru : '+nama_01[0]+'```')
-                await client.say("`Gunakan perintah: .aise getlink 0 untuk mengambil tautan`")
-
-        if x=='list':
-                nama=re.compile(r"<h2 class=\"episodeye\">.*title=\"(.+)\">")
-                tautan = 'https://aise.fansub.web.id'
-                halaman = urlopen(tautan)
-                ah=BeautifulSoup(halaman, 'html.parser')
-                nama_01=nama.findall(str(ah))
-                tabel1=[]
-                index=-1
-                for x in nama_01:
-                    index=index+1
-                    tabel1.append("["+str(index)+"] "+x+"\n")
-                luist="".join(tabel1)
-                await client.say('```'+luist+'```')
-                await client.say("`Gunakan perintah: .aise getlink [index] untuk mengambil tautan`")
-        if x=='getlink':
-                tautan = 'https://aise.fansub.web.id'
-                halaman = urlopen(tautan)
-                ah=BeautifulSoup(halaman, 'html.parser')
-                link=re.compile(r"<h2 class=\"episodeye\">.*<a href=\"(.+)\" title")
-                link_01=link.findall(str(ah))
-                perpusindo=re.compile(r"(http:\/\/www.perpusindo.info\/.*)\">")
-                mirrorcreator=re.compile(r'\"(https:\/\/www.mirrorcreator.com.*)\"\s*rel')
-                tautanx = link_01[int(z[0])]
-                halamanx = urlopen(tautanx)
-                ahx=BeautifulSoup(halamanx, 'html.parser')
-                #if mirrorcreator.match(str(ahx)):
-                #        hmm1=mirrorcreator.findall(str(ahx))
-                #        hasil=hmm1[0]
-                #        await client.say(hasil)
-                
-                hmm=re.search(perpusindo,str(ahx))
-                hasil=hmm.group(1)
-                #boi="".join(hmm1)
-                await client.say(hasil)
-               
+	return await client.change_presence(game=discord.Game(name='PyCharm'))
         
 @client.command(pass_context=True)
 async def an8(ctx, x, *z):
