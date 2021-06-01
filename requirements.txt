@@ -40,5 +40,5 @@ textblob==0.15.1
 traitlets==4.3.2
 twython==3.6.0
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 websockets==3.4
